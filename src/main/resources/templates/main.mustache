@@ -3,13 +3,18 @@
 <div>
     <form method = "post">
         <input type = "text" name = "text" placeholder="Текст поста" />
-        <input type = "text" name = "tag" placeholder="Ключевые слова" >
+        <input type = "text" name = "tag" placeholder="Ключевое слово" >
         <button type = "submit">Запостить</button>
 
     </form>
 </div>
 
 <div>Список постов</div>
+<form method = "post" action = "filter">
+      <input type = "text" name = "filter">
+      <button type = "submit">Поиск по ключевому слову</button>
+
+</form>
 {{#messages}}
     <div>
         <b>{{id}}</b>
