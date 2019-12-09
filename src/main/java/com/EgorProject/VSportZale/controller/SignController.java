@@ -5,6 +5,7 @@ import com.EgorProject.VSportZale.domain.User;
 import com.EgorProject.VSportZale.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -16,8 +17,10 @@ public class SignController {
     @Autowired
     private UserRepo userRepo;
     @GetMapping("/sign")
-    public String sign() {
-        return "sign";
+    public String registration(Model model)
+    {
+        model.addAttribute("message", "");
+        return ("/sign");
     }
     @PostMapping("/sign")
     public String addUser(User user, Map<String, Object> model) {
