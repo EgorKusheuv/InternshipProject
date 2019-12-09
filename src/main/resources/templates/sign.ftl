@@ -3,6 +3,6 @@
 
 <@c.page>
 Регистрация
-${message}
+${message?ifExists}
 <@l.login "/sign" />
 </@c.page>
