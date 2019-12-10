@@ -3,5 +3,6 @@
 
 <@c.page>
 Пожалуйста,авторизируйтесь:
+${message?ifExists}
 <@l.login "/login" false/>
 </@c.page>
