@@ -51,6 +51,6 @@
         </div>
     </div>
     <#else>
-    No message
+    Нет постов
     </#list>
 </@c.page>
