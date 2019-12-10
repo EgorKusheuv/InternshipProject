@@ -3,7 +3,5 @@
 
 <@c.page>
 Пожалуйста,авторизируйтесь:
-<@l.login "/login" />
-<a href="/sign">Зарегистрироваться</a>
-
+<@l.login "/login" false/>
 </@c.page>

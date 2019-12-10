@@ -4,5 +4,5 @@
 <@c.page>
 Регистрация
 ${message?ifExists}
-<@l.login "/sign" />
+<@l.login "/sign" true/>
 </@c.page>
