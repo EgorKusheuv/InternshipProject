@@ -5,6 +5,7 @@ create table message (
     filename varchar(255),
     tag varchar(255) not null,
     text varchar(2048) not null,
+    title varchar(255) not null,
     user_id int8,
     primary key (id)
 );

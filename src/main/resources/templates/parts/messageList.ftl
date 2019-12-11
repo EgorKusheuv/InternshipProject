@@ -4,12 +4,17 @@
 
     <div class="card my-3" style = "width: 24rem;">
 
+
+        <div class="m-2">
+            <ins>${message.title}</ins><br/>
+            <span>${message.text}</span><br/>
+
+        </div>
         <#if message.filename??>
-        <img src="/img/${message.filename}" class="card-img-top">
+                <img src="/img/${message.filename}" class="card-img-top">
         </#if>
         <div class="m-2">
-            <span>${message.text}</span><br/>
-            <i>#${message.tag}</i>
+        <i>#${message.tag}</i>
         </div>
         <div class="card-footer text-muted">
            <a href = "/user-messages/${message.author.id}">${message.authorName}</a>

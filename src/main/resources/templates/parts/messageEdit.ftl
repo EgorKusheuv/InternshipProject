@@ -5,6 +5,15 @@
     <div class="form-group mt-3">
         <form method="post" enctype="multipart/form-data">
                     <div class="form-group">
+                             <input type="text" class="form-control ${(titleError??)?string('is-invalid', '')}"
+                                 value="<#if message??>${message.title}</#if>" name="title" placeholder="Введите заголовок" />
+                         <#if titleError??>
+                             <div class="invalid-feedback">
+                                  ${titleError}
+                             </div>
+                         </#if>
+                    </div>
+                    <div class="form-group">
                         <input type="text" class="form-control ${(textError??)?string('is-invalid', '')}"
                                value="<#if message??>${message.text}</#if>" name="text" placeholder="Введите сообщение" />
                         <#if textError??>

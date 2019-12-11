@@ -7,7 +7,7 @@ public class Message {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-
+    private String title;
     private String text;
     private String tag;
 
@@ -20,8 +20,9 @@ public class Message {
     public Message() {
     }
 
-    public Message(String text, String tag, User user) {
+    public Message(String title,String text, String tag, User user) {
         this.author = user;
+        this.title = title;
         this.text = text;
         this.tag = tag;
     }
@@ -37,6 +38,10 @@ public class Message {
     public void setAuthor(User author) {
         this.author = author;
     }
+
+    public String getTitle() {return title;}
+
+    public void setTitle(String title) {this.title = title;}
 
     public void setText(String text) {
         this.text = text;

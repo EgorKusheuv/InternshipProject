@@ -49,11 +49,12 @@ public class MainController {
     @PostMapping("/main")
     public String add(
             @AuthenticationPrincipal User user,
+            @RequestParam String title,
             @RequestParam String text,
             @RequestParam String tag, Map<String, Object> model,
             @RequestParam("file") MultipartFile file
     ) throws IOException {
-        Message message = new Message(text, tag, user);
+        Message message = new Message(title, text, tag, user);
 
         saveFile(file, message);
         messageRepo.save(message);
@@ -85,6 +86,7 @@ public class MainController {
             @RequestParam(required = false) Message message
     ) {
         Set<Message> messages = user.getMessages();
+        model.addAttribute("userPostsName", user);
         model.addAttribute("messages", messages);
         model.addAttribute("message", message);
         model.addAttribute("isCurrentUser", currentUser.equals(user));
@@ -93,9 +95,11 @@ public class MainController {
 
     @PostMapping("/user-messages/{user}")
     public String updateMessage(
+
             @AuthenticationPrincipal User currentUser,
             @PathVariable Long user,
             @RequestParam("id") Message message,
+            @RequestParam("title") String title,
             @RequestParam("text") String text,
             @RequestParam("tag") String tag,
             @RequestParam("file") MultipartFile file
@@ -103,6 +107,9 @@ public class MainController {
         if (message.getAuthor().equals(currentUser)) {
            if (!StringUtils.isEmpty(text)){
                message.setText(text);
+           }
+           if (!StringUtils.isEmpty(title)){
+               message.setTitle(title);
            }
            if (!StringUtils.isEmpty(tag)) {
                message.setTag(tag);
